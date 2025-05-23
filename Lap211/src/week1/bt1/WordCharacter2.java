@@ -18,9 +18,8 @@ public class  WordCharacter2 {
     }
 
     public Map<String, Integer> getWordCharacterCount() {
-        String[] words =n.split(" ");
         Map<String, Integer> wordCountMap = new java.util.HashMap<>();
-
+        String[] words =n.split(" ");
         for (String word : words) {
             String cleanedWord = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
             if (!cleanedWord.isEmpty()) {
