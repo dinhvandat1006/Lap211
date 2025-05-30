@@ -14,7 +14,7 @@ public class LinearSearch {
             return array;
         }
 
-        public void setArray(int[] array) {
+         public void setArray(int[] array) {
             this.array = array;
         }
 

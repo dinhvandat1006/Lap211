@@ -1,40 +1,40 @@
-package week2.bai1;
-
 public class Matrix {
     private int rows;
     private int cols;
     private double[][] data;
 
+    // Constructor tạo ma trận với số dòng, cột cho trước, tất cả giá trị 0
     public Matrix(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
-        this.data = new double[rows][cols];
+        data = new double[rows][cols];
     }
 
-    public void setValue(int row, int col, double value) {
-        data[row][col] = value;
-    }
-
-    public double getValue(int row, int col) {
-        return data[row][col];
-    }
-
+    // Lấy số dòng
     public int getRows() {
         return rows;
     }
 
+    // Lấy số cột
     public int getCols() {
         return cols;
     }
 
-    public double[][] getData() {
-        return data;
+    // Lấy giá trị tại vị trí (i,j)
+    public double getValue(int i, int j) {
+        return data[i][j];
     }
 
-    public void display() {
-        for (double[] row : data) {
-            for (double val : row) {
-                System.out.print(val + "\t");
+    // Đặt giá trị tại vị trí (i,j)
+    public void setValue(int i, int j, double value) {
+        data[i][j] = value;
+    }
+
+    // In ma trận ra màn hình
+    public void print() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(data[i][j] + " ");
             }
             System.out.println();
         }
