@@ -4,10 +4,20 @@ import java.util.Random;
 
 class Bubblesort {
     private int[] array;
+    private int n;
+    private int j;
 
     public Bubblesort(int size) {
-        array = new int[size];
+        this.array = new int[size];
+        this.n = size;
+        this.j = size;
         generateRandomArray();
+    }
+
+    public Bubblesort(int[] array, int j, int n) {
+        this.array = array;
+        this.j = j;
+        this.n = n;
     }
 
     public int[] getArray() {
@@ -16,6 +26,32 @@ class Bubblesort {
 
     public void setArray(int[] array) {
         this.array = array;
+    }
+
+    public int getJ() {
+        return j;
+    }
+
+    public void setJ(int j) {
+        this.j = j;
+    }
+
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    // viet 1 ham tim kiem 1 so, neu tim thay thi tra ve vi tri cua so do trong array
+    public int linearSearch(int target){
+        for(int i = 0; i < array.length; i++){
+            if(array[i] == target) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private void generateRandomArray() {
@@ -34,17 +70,18 @@ class Bubblesort {
         System.out.println("]");
     }
 
-    public void bubbleSort() {
-        for (int k = 0; k < array.length - 1; k++) {
-            for (int h = 0; h < array.length - 1 - k; h++) {
-                if (array[h] > array[h + 1]) {
-                    int tmp = array[h];
-                    array[h] = array[h + 1];
-                    array[h + 1] = tmp;
+    public bubbleSort(){
+        for(int i = n - 1; i > 0; i--){
+            for(int j = 0; j < i; j++){
+                if (a[j] > a[j + 1]){
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
                 }
             }
         }
     }
+
 
     public int binarySearch(int target) {
         int left = 0;
@@ -61,27 +98,27 @@ class Bubblesort {
         return -1;
     }
 
-
-    public void quickSort(int low , int hight){
-      if(low < hight){
-          int key = partition(low, hight);
-          quickSort(low, key -1);
-          quickSort(key + 1, hight);
-      }
-
+    public void quickSort(int low, int high){
+        if(low < high){
+            int key = partition(low, high);
+            quickSort(low, key - 1);
+            quickSort(key + 1, high);
+        }
     }
 
-    private int partition (int low, int hight){
+    private int partition(int low, int high){
         int key = array[low];
         int i = low;
-        int j = hight;
-        while (i <= j){
-            while (i <= hight && array[i] <= key) i++;
+        int j = high;
+        while (i < j){
+            while (i <= high && array[i] <= key) i++;
             while (array[j] > key) j--;
             if (i < j) {
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
+                i++;
+                j --;
             }
         }
         int temp = array[low];

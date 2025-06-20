@@ -3,12 +3,11 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Bubblesort sorter = new Bubblesort(10); // tạo mảng có 10 phần tử ngẫu nhiên
+        Bubblesort sorter = new Bubblesort(10);
 
         System.out.println("Mảng ban đầu:");
         sorter.printArray();
 
-        // Sắp xếp bằng Bubble Sort
         sorter.bubbleSort();
         System.out.println("Sau khi Bubble Sort:");
         sorter.printArray();
@@ -22,7 +21,6 @@ public class Main {
             System.out.println("Không tìm thấy " + target + " trong mảng.");
         }
 
-        // Tạo lại mảng mới và sắp xếp bằng Quick Sort
         sorter = new Bubblesort(10);
         System.out.println("\nMảng mới:");
         sorter.printArray();
@@ -30,5 +28,15 @@ public class Main {
         sorter.quickSort(0, sorter.getArray().length - 1);
         System.out.println("Sau khi Quick Sort:");
         sorter.printArray();
+
+        // Tìm kiếm tuyến tính
+        target = 5; // Reuse the existing target variable
+        result = sorter.linearSearch(target);
+        System.out.println("\nLinear Search for " + target + ": ");
+        if (result != -1) {
+            System.out.println("Found at index: " + result);
+        } else {
+            System.out.println("Not found");
+        }
     }
 }

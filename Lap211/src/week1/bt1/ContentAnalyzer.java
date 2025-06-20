@@ -22,14 +22,15 @@ public class ContentAnalyzer {
 
     // Đếm số lần xuất hiện của mỗi từ
 
-//public Map<String, Integer> countWords(){
-//        Map<String,Integer> wordCount = new LinkedHashMap<>();
-//        String[] words = content.trim().split("\\s+");
-//        for(String word : words){
-//            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
-//        }
-//        return wordCount;
-//}
+public Map<String, Integer> countWords(){
+        Map<String,Integer> wordCount = new LinkedHashMap<>();
+        String[] words = content.trim().split("\\s+");
+        for(String word : words){
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+        }
+        return wordCount;
+}
+
 
 
     // Đếm số lần xuất hiện của mỗi ký tự (loại bỏ dấu cách)
